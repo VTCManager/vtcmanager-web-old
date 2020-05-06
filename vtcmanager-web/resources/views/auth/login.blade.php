@@ -10,12 +10,12 @@
                 
                 <form action="{{ route('login') }}" method="post" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
                     @csrf
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('auth.email') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                    <input type="text" name="login" class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('auth.email') }}" value="{{ old('username') ?: old('email') }}" required autocomplete="email" autofocus>
+                    @if ($errors->has('username') || $errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
                     </span>
-                    @enderror
+                    @endif
                     <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('auth.assword') }}" required autocomplete="current-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
