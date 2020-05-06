@@ -5,15 +5,34 @@
     <div class="se-pre-con"></div>
         <div class="loginFormWrapper">
             <div class="loginForm">
-                <h1 style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">Anmelden</h1>
+                <h1 style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">{{ __('auth.Login') }}</h1>
                 <hr class="underline" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
                 
-                <form action="/api/web/account/login.php" method="post" name="loginform" id="account-login-form" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Benutzername" value="" required="">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Passwort" maxlength="150" required="">
-                    <p><a href="https://vtc.northwestvideo.de/account/reset-password">Passwort vergessen?</a></p>
-                                    <input type="submit" name="submit" class="btn btn-default btn-block" value="Anmelden">
-                    <p>Neu bei VTCManager? <br>Jetzt <a href="https://vtc.northwestvideo.de/account/register">registrieren</a>!</p>
+                <form action="{{ route('login') }}" method="post" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    @csrf
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('auth.email') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('auth.assword') }}" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="remember">{{ __('auth.remember_me') }}</label>
+                    </div>
+                    @if (Route::has('password.request'))
+                    <p><a href="{{ route('password.request') }}">{{ __('auth.forgot_password') }}</a></p>
+                    @endif
+                    <input type="submit" name="submit" class="btn btn-default btn-block" value="{{ __('auth.Login') }}">
+                    @if (Route::has('register'))
+                    <p>{{ __('auth.new_to_vtcmanager') }} <br><a href="{{ route('register') }}">{{ __('auth.register_now') }}</a></p>
+                    @endif
                 </form>
             </div>
         </div>
