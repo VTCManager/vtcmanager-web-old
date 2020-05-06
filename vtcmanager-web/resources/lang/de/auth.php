@@ -13,7 +13,7 @@ return [
     |
     */
     'Login' => 'Anmelden',
-    'email' => 'E-Mail',
+    'email' => 'E-Mail oder Benutzername',
     'password' => 'Passwort',
     'forgot_password' => 'Passwort vergessen?',
     'remember_me' => 'Angemeldet bleiben',

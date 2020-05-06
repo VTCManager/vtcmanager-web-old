@@ -13,7 +13,7 @@ return [
     |
     */
     'Login' => 'Login',
-    'email' => 'E-Mail',
+    'email' => 'E-Mail or Username',
     'password' => 'Password',
     'forgot_password' => 'Forgot your password?',
     'remember_me' => 'Remember Me',

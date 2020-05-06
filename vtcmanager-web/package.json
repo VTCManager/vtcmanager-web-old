@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "animate.css": "^3.7.2",
         "chart.js": "^2.9.3",
         "mdbootstrap": "^4.17.0",
         "ng2-charts": "^2.3.0"

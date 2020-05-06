@@ -1,7 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="account-login-page">
+<video autoplay muted loop id="myVideo">
+    <source src="{{ asset('videos/highway_at_night.mp4') }}" type="video/mp4">
+</video>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+                <form class="box animated slideInRight">
+                    <h1>Login</h1>
+                    <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#">
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+<!--<div class="account-login-page">
     <div class="se-pre-con"></div>
         <div class="loginFormWrapper">
             <div class="loginForm">
@@ -40,7 +61,7 @@
         <script type="text/javascript" src="./Anmelden - VTCManager_files/bootstrap.min.js.Download"></script>
         <script type="text/javascript" src="./Anmelden - VTCManager_files/account.js.Download"></script>
         <script async="" src="./Anmelden - VTCManager_files/js"></script>
-    </div>
+    </div>-->
 
 <!--<div class="container">
     <div class="row justify-content-center">
@@ -114,315 +135,146 @@
 @endsection
 @section('css')
 <style>
-    html, body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-	justify-content: center;
-    background-size: cover;
-    background-position: center;
-    background-image: url('https://vtc.northwestvideo.de/media/highway.jpg');
-    background-blend-mode: multiply;
-	background-repeat: no-repeat;
-    position: relative;
-    z-index: 1;
-	vertical-align: middle;
-	height: 100%;
+    /* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-img {
-    -webkit-user-drag: none;
-}
-
-h1, h2, h3 {
-    font-weight: 700;
-}
-
-.btn, .form-control, .input-group-addon {
-    border-radius: 0;
-    border-width: 2px;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-}
-
-.btn {
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.btn.btn-text {
-    color: #3c09b2;
-}
-
-.btn.btn-transparent {
-    background-color: transparent;
-    border-color: #fff;
-    color: #fff;
-}
-
-.btn.btn-transparent:hover,
-.btn.btn-transparent:focus {
-    background-color: #00d5ff;
-    border-color: transparent;
-    color: #000;
-}
-
-.btn.btn-text:hover,
-.btn.btn-text:focus {
-    background: #eee;
-    border-color: transparent;
-}
-
-.btn.btn-default {
-    background-color: transparent;
-    border-color: #000;
-    color: #000;
-}
-
-.btn.btn-default:hover,
-.btn.btn-default:focus {
-    background-color: #eee;
-    border-color: #000;
-    color: #000;
-}
-
-.btn.btn-primary {
-    background-color: #3c09b2;
-    border-color: #00d5ff;
-    color: #fff;
-}
-
-.btn.btn-primary:hover,
-.btn.btn-primary:focus {
-    background-color: #2c0782;
-    border-color: transparent;
-}
-
-.btn.btn-primary[disabled],
-fieldset[disabled] .btn.btn-primary {
-    opacity: .35;
-}
-
-.btn.btn-success,
-.btn.btn-danger,
-.btn.btn-info,
-.btn.btn-warning {
-    border-color: transparent;
-}
-
-.btn .fa.fa-chevron-right {
-    margin-left: 5px;
-}
-
-.shorten-text-overflow {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.form-control {
-    box-shadow: none;
-}
-
-.form-control:focus {
-    border-color: #00d5ff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 213, 255,.5);
-}
-
-.form-control.form-control-lg {
-    padding: 20px 18px;
-    font-size: 15px;
-}
-
-.jumbotron p {
-    font-weight: normal;
-}
-
-.navbar {
-    font-size: 14px;
-}
-
-.alert {
-    border: 2px solid rgba(0,0,0,.3);
-    border-radius: 0;
-}
-
-footer.footer {
-    padding: 50px 0;
-    background-color: #eee;
-}
-
-footer.footer .container:last-child {
-    margin-top: 25px;
-}
-
-footer.footer .container:last-child span {
-    margin-top: 12px;
-}
-
-footer.footer img {
-    max-width: 175px;
-}
-
-footer.footer .col-md-4 {
-    padding: 15px 0;
-}
-
-footer.footer ul {
-    padding-left: 0;
-}
-
-footer.footer li {
-    list-style-type: none;
-}
-
-footer.footer a, footer.footer a:hover {
-    color: #000;
-}
-
-footer.footer .social-media a {
-    font-size: 25px;
-    margin-right: 5px;
-}
-
-.page-header {
-    margin: 20px 0;
-    position: relative;
-}
-
-.page-header h1, .page-header h3 {
-    color: #000;
-    font-weight: 900;
-}
-
-.page-header a:not(.btn):not(.show-more-link) {
-    color: #000;
-}
-
-.page-header .show-more-link {
-    position: absolute;
-    right: 0;
-    bottom: 13px;
-}
-
-.page-header h4, .page-header h4 {
-    font-weight: 900;
-    color: #999;
-    text-transform: uppercase;
-}
-
-.dropdown-menu {
-    margin-top: 4px !important;
-}
-
-/* Login */
-.account-login-page {
-    display: flex;
-    margin-top: 0;
-	align-items: center;
-    justify-content: center;
-	height: 100%;
-}
-
-.loginFormWrapper {
+.box {
     width: 400px;
-    height: 500px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-	border-radius: 25px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    background: #191919;
+    ;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px
 }
 
-.loginFormWrapper.fullWidth {
-    width: 100%;
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
 }
 
-.loginForm {
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
     width: 300px;
+    border-color: #2ecc71
 }
 
-.loginForm h1 {
-    margin-bottom: 20px;
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
 }
 
-.loginForm hr.underline {
-    background-color: #00d5ff;
-    margin-bottom: 50px;
-    margin-right: auto;
-    margin-left: 0;
-    text-align: left;
-    height: 5px;
-    width: 163px;
+.box input[type="submit"]:hover {
+    background: #2ecc71
 }
 
-.loginForm img {
-    margin-bottom: 25px;
+.forgot {
+    text-decoration: underline
 }
 
-.loginForm input, 
-.loginForm p,
-.loginForm .g-recaptcha {
-    margin-top: 8px;
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
 }
 
-.loginForm .btn-default {
-    background-color: #00d5ff;
-    border-color: #00d5ff;
-    color: #000;
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
 }
 
-.featuredImageWrapper {
-    width: calc(100% - 700px);
-    background-size: contain;
-    background-position: center;
-    background-image: url('/assets/images/road_cropped.jpg');
-    background-blend-mode: multiply;
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
+}
+
+.social-network a.icoGoogle:hover {
+    background-color: #BD3518
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+    color: #fff
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
     position: relative;
-    z-index: 1;
-}
-
-.featuredImageWrapper .creator,
-.carousel-cell .creator {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-}
-
-.featuredImageWrapper .creator img,
-.carousel-cell .creator img {
-    margin-right: 10px;
-    height: 25px;
-    width: 25px;
-}
-
-.featuredImageWrapper:after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-40deg, rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 100%);
-}
-
-@media (max-width: 700px) {
-    .featuredImageWrapper {
-        display: none;
-    }
-    .loginFormWrapper {
-        width: 100%;
-    }
-}
-
-
-.profilePicture {
-    height: auto;
+    margin: 0 auto 0 auto;
     border-radius: 50%;
-	max-height: 30px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
 }
 </style>
 @endsection
