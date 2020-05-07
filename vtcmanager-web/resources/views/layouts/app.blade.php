@@ -25,6 +25,7 @@
         <div id="loader"></div>
       </div>
     <div id="app">
+        @if(Request::route()->getName() != "login")
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -75,8 +76,9 @@
                 </div>
             </div>
         </nav>
+        @endif
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

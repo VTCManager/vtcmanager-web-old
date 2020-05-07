@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
  
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Storage;
  
 class LoginController extends Controller
 {
@@ -68,5 +69,12 @@ class LoginController extends Controller
     public function username()
     {
         return $this->username;
+    }
+
+    public function showLoginForm()
+    {
+        $all_screenshot_files = Storage::allFiles("public/screenshots/");
+        $random_screenshot_file = Storage::url($all_screenshot_files[rand(0,count($all_screenshot_files)-1)]);
+        return view('auth.login',['random_screenshot_file' => $random_screenshot_file]);
     }
 }
