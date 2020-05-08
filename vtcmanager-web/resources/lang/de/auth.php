@@ -12,6 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    /* LOGIN & Register */
+    'go_back' => 'Zurück',
     /* LOGIN */
     'Login' => 'Anmelden',
     'email' => 'E-Mail oder Benutzername',
