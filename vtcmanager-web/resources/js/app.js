@@ -33,13 +33,8 @@ const app = new Vue({
     el: '#app',
 });
 
-document.onreadystatechange = function () {
-    if (document.readyState === 'complete') {
-        $("#preloader").fadeOut(800);
-        $("#app").fadeIn(800);
-    }
-}
-
-$(window).on("unload", function (e) {
-    $("#app").fadeOut(800);
+//Loading completed animation
+$(window).on("load", function (e) {
+    $("#preloader").fadeOut(1000);
+    $("#app").fadeIn(800);
 });

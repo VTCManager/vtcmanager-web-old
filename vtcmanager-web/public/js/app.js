@@ -49955,17 +49955,11 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); //Loading completed animation
 
-document.onreadystatechange = function () {
-  if (document.readyState === 'complete') {
-    $("#preloader").fadeOut(800);
-    $("#app").fadeIn(800);
-  }
-};
-
-$(window).on("unload", function (e) {
-  $("#app").fadeOut(800);
+$(window).on("load", function (e) {
+  $("#preloader").fadeOut(1000);
+  $("#app").fadeIn(800);
 });
 
 /***/ }),

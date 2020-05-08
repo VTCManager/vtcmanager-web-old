@@ -4,7 +4,13 @@
 <div class="container-fluid">
     <div class="row no-gutter">
         <!-- The image half -->
-        <div class="col-md-6 d-none d-md-flex bg-image"></div>
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <div id="pic-author" class="fixed-bottom float-right blur">
+                <div>
+                    <p>Test</p>
+                </div>
+            </div>
+        </div>
 
 
         <!-- The content half -->
@@ -77,9 +83,12 @@
 @endsection
 @section('css')
 <style>
+    body{
+        overflow: hidden;
+    }
     .login,
     .image {
-        min-height: 100vh;
+        height: 100vh;
     }
 
     .bg-image {
