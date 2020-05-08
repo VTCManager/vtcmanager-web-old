@@ -8,6 +8,9 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class RegisterController extends Controller
 {
@@ -71,5 +74,15 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        $random_screenshot_file = Cache::remember('Login_Register_Random_Screenshot', 10, function () {
+            $all_screenshot_files = Storage::allFiles("public/screenshots/");;
+            return Storage::url($all_screenshot_files[rand(0,count($all_screenshot_files)-1)]);
+        });
+
+        return view('auth.register',['random_screenshot_file' => $random_screenshot_file]);
     }
 }

@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 // Variables
 @import 'variables';
@@ -104,4 +104,7 @@
       backdrop-filter: blur(2px);
       background-color: rgba(255, 255, 255, 0.5);  
     }
+  }
+  body{
+    font-family: Roboto;
   }

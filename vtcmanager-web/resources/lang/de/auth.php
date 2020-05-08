@@ -20,9 +20,14 @@ return [
     'password' => 'Passwort',
     'forgot_password' => 'Passwort vergessen?',
     'remember_me' => 'Angemeldet bleiben',
-    'failed' => 'Dieses Eingabe ist ungültig',
+    'failed' => 'Deine E-Mail Adresse/dein Benutzername und/oder dein Passwort ist falsch',
     'throttle' => 'Zu viele Anmeldeversuche. Bitte versuche es in :seconds Sekunden erneut.',
 
     /* REGISTER */
     'Register' => 'Registrieren',
+    'name' => 'Name',
+    'username' => 'Benutzername',
+    'email' => 'E-Mail Adresse',
+    'confirm_password' => 'Passwort bestätigen',
+    'accept_conditions' => 'Mit der Registrierung stimmst du unseren Nutzungsbedingungen und unserer Datenschutzerklärung zu.',
 ];

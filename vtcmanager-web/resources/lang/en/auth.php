@@ -15,14 +15,20 @@ return [
     /* LOGIN & Register */
     'go_back' => 'Go Back',
     /* LOGIN */
-    'Login' => 'Login',
+    'Login' => 'Sign In',
     'email' => 'E-Mail or Username',
     'password' => 'Password',
     'forgot_password' => 'Forgot your password?',
     'remember_me' => 'Remember Me',
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'Your e-mail adress/your username and/or your password are wrong',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     /* REGISTER */
+    'Register' => 'Register',
+    'name' => 'Name',
+    'username' => 'Username',
+    'email' => 'E-Mail Adress',
+    'confirm_password' => 'Confirm Password',
+    'accept_conditions' => 'By registering you agree to our Privacy Policy & Terms of Use.',
 
 ];

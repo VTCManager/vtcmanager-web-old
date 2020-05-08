@@ -85,7 +85,9 @@
 @endsection
 @section('css')
 <style>
-
+    body{
+        overflow: hidden;
+    }
     .login,
     .image {
         height: 100vh;
