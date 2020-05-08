@@ -12,14 +12,15 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    /* LOGIN */
     'Login' => 'Login',
     'email' => 'E-Mail or Username',
     'password' => 'Password',
     'forgot_password' => 'Forgot your password?',
     'remember_me' => 'Remember Me',
-    'register_now' => 'Register now!',
-    'new_to_vtcmanager'=> 'New to VTCManager?',
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
+    /* REGISTER */
 
 ];

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
  
 class LoginController extends Controller
 {
@@ -73,8 +74,11 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        $all_screenshot_files = Storage::allFiles("public/screenshots/");
-        $random_screenshot_file = Storage::url($all_screenshot_files[rand(0,count($all_screenshot_files)-1)]);
+        $random_screenshot_file = Cache::remember('Login_Register_Random_Screenshot', 10, function () {
+            $all_screenshot_files = Storage::allFiles("public/screenshots/");;
+            return Storage::url($all_screenshot_files[rand(0,count($all_screenshot_files)-1)]);
+        });
+
         return view('auth.login',['random_screenshot_file' => $random_screenshot_file]);
     }
 }

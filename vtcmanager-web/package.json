@@ -31,7 +31,10 @@
         "font-awesome": "^4.7.0",
         "install": "^0.13.0",
         "mdbootstrap": "^4.17.0",
+        "nanobar": "^0.4.2",
         "ng2-charts": "^2.3.0",
-        "npm": "^6.14.5"
+        "npm": "^6.14.5",
+        "pace": "0.0.4",
+        "pace-js": "^1.0.2"
     }
 }

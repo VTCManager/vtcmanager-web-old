@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+var Nanobar = require('nanobar');
+var nanobar = new Nanobar();
 
 window.Vue = require('vue');
 
@@ -29,4 +31,15 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+});
+
+document.onreadystatechange = function () {
+    if (document.readyState === 'complete') {
+        $("#preloader").fadeOut(800);
+        $("#app").fadeIn(800);
+    }
+}
+
+$(window).on("unload", function (e) {
+    $("#app").fadeOut(800);
 });
