@@ -24,12 +24,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Auth::user();
-        if(!$user->hasVerifiedEmail()){
-            if (!$request->session()->has('users')) {
-                $request->session()->put('warning', __('interface.email_not_verified'));
-            }
-        }
         return view('interface');
     }
 }

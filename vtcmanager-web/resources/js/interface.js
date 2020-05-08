@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('startbootstrap-sb-admin-2');
 var Nanobar = require('nanobar');
 var nanobar = new Nanobar();
 
@@ -31,45 +32,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-});
-
-//Loading completed animation
-$(window).on("load", function (e) {
-    $("#preloader").fadeOut(1000);
-    $("#app").fadeIn(800);
-});
-jQuery(function ($) {
-
-    $(".sidebar-dropdown > a").click(function() {
-  $(".sidebar-submenu").slideUp(200);
-  if (
-    $(this)
-      .parent()
-      .hasClass("active")
-  ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .parent()
-      .removeClass("active");
-  } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .next(".sidebar-submenu")
-      .slideDown(200);
-    $(this)
-      .parent()
-      .addClass("active");
-  }
-});
-
-$("#close-sidebar").click(function() {
-  $(".page-wrapper").removeClass("toggled");
-});
-$("#show-sidebar").click(function() {
-  $(".page-wrapper").addClass("toggled");
-});
-
-
-   
-   
 });
