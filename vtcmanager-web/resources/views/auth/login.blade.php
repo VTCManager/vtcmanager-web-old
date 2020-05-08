@@ -5,16 +5,18 @@
     <div class="row no-gutter">
         <!-- The image half -->
         <div class="col-md-6 d-none d-md-flex bg-image">
-            <div id="pic-author" class="fixed-bottom float-right blur">
-                <div>
-                    <p>Test</p>
+            <div id="pic-author" class="col-sm-2 fixed-bottom float-right py-3 pl-2">
+                <div class="d-flex align-items-center blur rounded py-1">
+                    <img src="https://scontent-frt3-1.cdninstagram.com/v/t51.2885-19/s150x150/87597836_600329690520870_5158951713356382208_n.jpg?_nc_ht=scontent-frt3-1.cdninstagram.com&_nc_ohc=Kra-lqbvBH8AX9k65Sb&oh=3749e6b365fb5bec1510a98783d39f3c&oe=5EDD55BD" 
+                        class="rounded-circle pl-1" alt="Cinque Terre" style="height: 30px;">
+                    <p class="mb-0 pl-1"><strong>@joschi_service</strong></p>
                 </div>
             </div>
         </div>
 
 
         <!-- The content half -->
-        <div class="col-md-6 bg-light">
+        <div class="col-md-6 bg-light animated fadeInRight">
             <div class="pt-3">
                 <button onclick="location.href = '/';" type="button" class="btn btn-outline-primary btn-go-back d-flex align-items-center">
                     <i class="fas fa-arrow-circle-left fa-2x"></i>
@@ -83,9 +85,7 @@
 @endsection
 @section('css')
 <style>
-    body{
-        overflow: hidden;
-    }
+
     .login,
     .image {
         height: 100vh;
