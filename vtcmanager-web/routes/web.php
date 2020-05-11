@@ -23,4 +23,5 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/interface', 'HomeController@index')->name('home')->middleware('verified');;
+Route::get('/interface', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/interface/logbook', 'LogbookController@index')->name('home')->middleware('verified');

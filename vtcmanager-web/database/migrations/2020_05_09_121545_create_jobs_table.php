@@ -13,9 +13,19 @@ class CreateJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('jobs_table', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger("user_id");
+            $table->string("origin")->nullable();
+            $table->string("destination")->nullable();
+            $table->string("cargo")->nullable();
+            $table->integer("cargo_weight")->nullable();
+            $table->integer("distance");
+            $table->timestamp("job_finished_time")->nullable();
+            $table->integer("company")->nullable();
+            $table->string("status");
+            $table->index("user_id");
         });
     }
 
@@ -26,6 +36,6 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('jobs_table');
     }
 }
