@@ -2,21 +2,24 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
+    /* TITLE */
+    'title' => "'s Fahrtenbuch",
+
+    /* TABELLE */
+    'origin' => 'Absender',
+    'destination' => 'Empfänger',
+    'cargo' => 'Fracht',
+    'status' => 'Status',
+    'started_date' => 'Gestartet am',
+
+    /* NO TOUR FOUND */
+    'no_tour_found' => 'Du hast leider noch keine Tour gefahren. Starte den VTCManager-Desktop-Client und lege direkt los!',
+
     /* STATUS */
     'started' => 'In Auslieferung',
     'canceled' => 'Abgebrochen',
     'finished' => 'Ausgeliefert',
     'accepted' => 'Bestätigt',
     'declined' => 'Abgelehnt',
-    'pending_verification' => 'Überprüfung',
+    'pending_verification' => 'Überprüfung...',
 ];
