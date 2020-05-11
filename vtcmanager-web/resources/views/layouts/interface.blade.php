@@ -20,9 +20,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
+    <style>
+      body{
+        background-color: #232f3d;
+      }
+    </style>
 </head>
 
-<body id="page-top">
+<body id="page-top" class="text-white">
     <div id="preloader">
         <div id="loader"></div>
     </div>
