@@ -23,8 +23,8 @@ class Job extends Model
     ];
 
 
-    public function user()
+    public function truck()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(Truck::class);
     }
 }
