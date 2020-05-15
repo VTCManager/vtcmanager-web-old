@@ -48,12 +48,12 @@
                             <div class="dropdown-primary dropdown">
                                 <div class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="https://img.icons8.com/color/96/000000/user.png" class="img-radius" alt="User-Profile-Image">
-                                    <span>Michael Vue</span>
+                                    <span>{{__($geetings)}} {{ Auth::user()->name }}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </div>
                                 <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                     <li>
-                                        <a href="#!">
+                                        <a href="{{ route('settings') }}">
                                             <i class="feather icon-settings"></i> Settings
                                         </a>
                                     </li>
@@ -73,7 +73,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="polygon/admindek/default/auth-sign-in-social.html">
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                             <i class="feather icon-log-out"></i> Logout
                                         </a>
                                     </li>
@@ -86,6 +86,10 @@
         </nav>
     </div>
 </div>
+<form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
         <div class="page-wrapper chiller-theme toggled">
             <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
               <i class="fas fa-bars"></i>
@@ -250,7 +254,7 @@
                   <i class="fa fa-cog"></i>
                   <span class="badge-sonar"></span>
                 </a>
-                <a href="#">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   <i class="fa fa-power-off"></i>
                 </a>
               </div>

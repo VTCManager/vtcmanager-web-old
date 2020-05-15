@@ -14,4 +14,10 @@ return [
     */
     /* LOGIN & Register */
     'email_not_verified' => 'E-Mail Adresse ist noch nicht bestätigt',
+
+    /* GREETINGS */
+    'greetings_gm' => 'Guten Morgen,',
+    'greetings_ga' => 'Hi,',
+    'greetings_ge' => 'Guten Abend,',
+    'greetings_gn' => 'Gute Nacht,',
 ];

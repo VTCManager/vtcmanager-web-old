@@ -11,6 +11,7 @@ return [
     'cargo' => 'Fracht',
     'status' => 'Status',
     'started_date' => 'Gestartet am',
+    'details' => 'Details',
 
     /* NO TOUR FOUND */
     'no_tour_found' => 'Du hast leider noch keine Tour gefahren. Starte den VTCManager-Desktop-Client und lege direkt los!',
@@ -22,4 +23,10 @@ return [
     'accepted' => 'Bestätigt',
     'declined' => 'Abgelehnt',
     'pending_verification' => 'Überprüfung...',
+
+    /* MODAL */
+    //TABS
+    'general' => 'Allgemein',
+    'costs' => 'Kosten',
+    'truck' => 'LKW',
 ];

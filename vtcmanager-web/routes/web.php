@@ -23,5 +23,6 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/interface', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('/interface/logbook', 'LogbookController@index')->name('home')->middleware('verified');
+Route::get('/interface', 'HomeController@index')->middleware('verified');
+Route::get('/interface/logbook', 'LogbookController@index')->middleware('verified');
+Route::get('/interface/account/settings', 'SettingsController@index')->name('settings')->middleware('verified');
