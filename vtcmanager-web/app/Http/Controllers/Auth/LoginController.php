@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
+use Socialite;
+
  
 class LoginController extends Controller
 {
@@ -80,5 +82,21 @@ class LoginController extends Controller
         });
 
         return view('auth.login',['random_screenshot_file' => $random_screenshot_file]);
+    }
+    public function redirectToProvider()
+    {
+        return Socialite::driver('steam')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('steam')->user();
+
+        // $user->token;
     }
 }

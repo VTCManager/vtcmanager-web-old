@@ -26,3 +26,5 @@ Auth::routes(['verify' => true]);
 Route::get('/interface', 'HomeController@index')->middleware('verified');
 Route::get('/interface/logbook', 'LogbookController@index')->middleware('verified');
 Route::get('/interface/account/settings', 'SettingsController@index')->name('settings')->middleware('verified');
+Route::get('/login/steam', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/steam/callback', 'Auth\LoginController@handleProviderCallback');
