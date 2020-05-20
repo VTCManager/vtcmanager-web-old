@@ -25,6 +25,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/interface', 'HomeController@index')->middleware('verified');
 Route::get('/interface/logbook', 'LogbookController@index')->middleware('verified');
-Route::get('/interface/account/settings', 'SettingsController@index')->name('settings')->middleware('verified');
+Route::get('/interface/account/settings/', 'SettingsController@index')->name('settings')->middleware('verified');
+Route::post('/interface/account/settings/create-client-key', 'SettingsController@create_client_key')->name('create-client-key')->middleware('verified');
 Route::get('/login/steam', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/steam/callback', 'Auth\LoginController@handleProviderCallback');

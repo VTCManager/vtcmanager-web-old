@@ -10,14 +10,17 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form action="{{ route('create-client-key') }}" method="post">
+          @csrf
         <div class="modal-body">
             <p class="text-danger">{{ __('settings.create_client_key_ip_warning') }}</p>
             <p>{{ __('settings.create_client_key_your_ip') }}: {{Request::ip()}}</p>
-            <input class="form-control text-white" type="text" placeholder="Beschreibung">
+            <input class="form-control text-white" name="description" maxlength="255" type="text" placeholder="Beschreibung">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success">Save changes</button>
+          <button type="submit" class="btn btn-success">Save changes</button>
         </div>
+      </form>
       </div>
     </div>
   </div>
@@ -43,9 +46,14 @@
               </tr>
             </thead>
             <tbody>
-                <tr>
-
-                </tr>
+              @foreach ($client_keys as $client_key)
+                  <tr>
+                    <td>{{$client_key->description}}</td>
+                    <td>{{$client_key->created_at}}</td>
+                    <td>{{$client_key->key}}</td>
+                    <td></td>
+                  </tr>
+              @endforeach
             </tbody>
         </table>
         <div class="float-right">
