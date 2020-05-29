@@ -31,7 +31,16 @@ class ClientKey extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'key',
+        'description', 'key', 'used',
+    ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'used' => false,
     ];
 
     public function user()

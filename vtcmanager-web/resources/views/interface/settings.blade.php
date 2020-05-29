@@ -51,7 +51,12 @@
                     <td>{{$client_key->description}}</td>
                     <td>{{$client_key->created_at}}</td>
                     <td>{{$client_key->key}}</td>
-                    <td></td>
+                    <td>
+                      <form action="{{ route('delete-client-key', ['key' => $client_key->key])}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="btn btn-danger">{{ __('settings.delete') }}</button>
+                      </form>
                   </tr>
               @endforeach
             </tbody>

@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/key/login/{key}', function($key) {
+    return new \App\Http\Resources\ClientKey(\App\ClientKey::find($key));
+});

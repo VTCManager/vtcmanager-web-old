@@ -37,5 +37,12 @@ class SettingsController extends Controller
     while(!$user_code->isEmpty());
         $key_data["key"] = $token;
         auth()->user()->clientkeys()->create($key_data);
+        return redirect("/interface/account/settings/");
+    }
+
+    public function destroy_client_key($key){
+        $found_key = auth()->user()->clientkeys()->findorfail($key);
+        $found_key->forceDelete();
+        return redirect("/interface/account/settings/");
     }
 }
