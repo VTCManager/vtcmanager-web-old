@@ -31,7 +31,7 @@ class ClientKey extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'key', 'used',
+        'description', 'key', 'used', 'client_ident',
     ];
 
     /**
@@ -41,6 +41,7 @@ class ClientKey extends Model
      */
     protected $attributes = [
         'used' => false,
+        'client_ident' => "",
     ];
 
     public function user()
