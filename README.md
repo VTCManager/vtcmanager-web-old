@@ -11,4 +11,4 @@ If you got an idea for something, then feel free to contact `_joschi03_#3193` n 
 VTCManager is open-sourced software licensed under the [GPL-2.0](https://github.com/VTCManager/vtcmanager-web/blob/master/LICENSE) license.
 ## Acknowledgments
 Many thanks for contributing to this project to:
-* [thommy1972deNeu](https://github.com/thommy1972deNeu)
+* available soon
