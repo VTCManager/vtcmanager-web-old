@@ -15,18 +15,14 @@ class LoginClientKey extends JsonResource
     public function toArray($request)
     {
         if (isset($this->key)) {
-            $key = \App\ClientKey::find($this->key);
-            if (!$key->used) {
-                $key->used = true;
-                $key->save();
+            if($request->client_ident == $this->client_ident && $request->key == $this->key){
                 return [
                     'success' => true,
-                    'owner' => $key->user_id,
                 ];
             }else{
                 return [
                     'success' => false,
-                    'error_code' => 'key_already_used',
+                    'error_code' => 'unauthorized',
                 ];
             }
         } else {

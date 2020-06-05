@@ -20,6 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/key/register/{key}', function($key) {
     return new \App\Http\Resources\RegisterClientKey(\App\ClientKey::find($key));
 });
-Route::get('/key/login/{key}', function($key) {
+Route::post('/key/login/{key}', function($key) {
     return new \App\Http\Resources\LoginClientKey(\App\ClientKey::find($key));
 });
