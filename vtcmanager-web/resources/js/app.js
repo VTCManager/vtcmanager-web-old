@@ -95,6 +95,13 @@ $(document).ready(function() {
   }, 300);
   });
   
+  $(".btn-go-back").mouseover(function() {
+    console.log("ye");
+    $('.go-back-icon').css('color','white');
+  });
+  $(".btn-go-back").mouseout(function() {
+    $('.go-back-icon').css('color','black');
+  })
   
   
   });

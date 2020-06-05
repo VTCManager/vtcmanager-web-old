@@ -21135,3 +21135,12 @@ a {
   background-color: #222831;
 }
 
+.go-back-icon {
+  color: black;
+}
+
+.btn-go-back {
+  border: 0;
+  color: black;
+}
+

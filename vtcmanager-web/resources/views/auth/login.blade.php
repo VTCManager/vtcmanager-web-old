@@ -19,7 +19,7 @@
         <div class="col-md-6 bg-light animated fadeInRight">
             <div class="pt-3">
                 <button onclick="location.href = '/';" type="button" class="btn btn-outline-primary btn-go-back d-flex align-items-center">
-                    <i class="fas fa-arrow-circle-left fa-2x"></i>
+                    <i class="fas fa-arrow-circle-left fa-2x go-back-icon"></i>
                     <h3 class="mb-0 pl-2">{{ __('auth.go_back') }}</h3>
                 </button>
             </div>
@@ -97,10 +97,6 @@
         background-image: url('{{$random_screenshot_file}}');
         background-size: cover;
         background-position: center center;
-    }
-    .btn-go-back{
-        border: 0;
-        color: black;
     }
 </style>
 @endsection
