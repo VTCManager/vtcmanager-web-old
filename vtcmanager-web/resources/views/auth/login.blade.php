@@ -35,7 +35,7 @@
                                 @csrf
                                 <div class="form-group mb-3">
                                     <input type="email" name="login"
-                                        class="form-control{{ $errors->has('username') || $errors->has('email') ? '  is-invalid' : '' }} rounded-pill border-0 shadow-sm px-4"
+                                        class="login-register-form-control form-control{{ $errors->has('username') || $errors->has('email') ? '  is-invalid' : '' }} rounded-pill border-0 shadow-sm px-4"
                                         placeholder="{{ __('auth.email') }}"
                                         value="{{ old('username') ?: old('email') }}" required autocomplete="email"
                                         autofocus>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="password" name="password"
-                                        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary @error('password') is-invalid @enderror"
+                                        class="login-register-form-control form-control rounded-pill border-0 shadow-sm px-4 text-primary @error('password') is-invalid @enderror"
                                         placeholder="{{ __('auth.password') }}" required
                                         autocomplete="current-password">
                                     @error('password')

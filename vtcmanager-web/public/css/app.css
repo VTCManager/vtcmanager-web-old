@@ -21144,3 +21144,11 @@ a {
   color: black;
 }
 
+.login-register-form-control {
+  background-color: white;
+}
+
+.login-register-form-control:focus {
+  background-color: white;
+}
+
