@@ -51,18 +51,18 @@
             <td class="align-middle">{{$job->destination}}</td>
             <td class="align-middle">{{$job->cargo}}</td>
             <td class="align-middle">
-                @if ($job->started)
-                    <i class="fas fa-truck"></i> {{ __('logbook.started') }}
-                @elseif ($job->canceled)
-                    <i class="fas fa-times-circle" style="color:orange;"></i> {{ __('logbook.canceled') }}
-                @elseif ($job->finished)
-                    <i class="fas fa-warehouse"></i> {{ __('logbook.finished') }}
+                @if ($job->pending_verification)
+                    <i class="fas fa-clock"></i> {{ __('logbook.pending_verification') }}
                 @elseif ($job->accepted)
                     <i class="fas fa-check-circle" style="color: green"></i> {{ __('logbook.accepted') }}
                 @elseif ($job->declined)
                     <i class="fas fa-times-circle" style="color:red;"></i> {{ __('logbook.declined') }}
-                 @elseif ($job->pending_verification)
-                    <i class="fas fa-clock"></i> {{ __('logbook.pending_verification') }}
+                @elseif ($job->finished)
+                  <i class="fas fa-warehouse"></i> {{ __('logbook.finished') }}
+                @elseif ($job->canceled)
+                    <i class="fas fa-times-circle" style="color:orange;"></i> {{ __('logbook.canceled') }}
+                @elseif ($job->started)
+                  <i class="fas fa-truck"></i> {{ __('logbook.started') }}
                 @endif
             </td>
             <td class="align-middle">{{$job->created_at->format("d.m.Y H:i")}}</td>
