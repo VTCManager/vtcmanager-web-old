@@ -27,4 +27,8 @@ class Job extends Model
     {
         return $this->hasOne(Truck::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

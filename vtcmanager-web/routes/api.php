@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIJobController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::post('/key/register/{key}', function($key) {
 Route::post('/key/login/{key}', function($key) {
     return new \App\Http\Resources\LoginClientKey(\App\ClientKey::find($key));
 });
+Route::post('/key/{key}/job/start', "APIJobController@create");
