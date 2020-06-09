@@ -24,4 +24,5 @@ Route::post('/key/register/{key}', function($key) {
 Route::post('/key/login/{key}', function($key) {
     return new \App\Http\Resources\LoginClientKey(\App\ClientKey::find($key));
 });
-Route::post('/key/{key}/job/start', "APIJobController@create");
+Route::post('/key/{key}/job/start', "APIJobController@start");
+Route::post('/key/{key}/job/delivered', "APIJobController@delivered");
