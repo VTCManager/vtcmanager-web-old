@@ -35,35 +35,7 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
     <div class="tab-pane fade" id="client-page" role="tabpanel" aria-labelledby="client-tab">
-        <table class="table text-white">
-            <thead>
-              <tr>
-                <th scope="col">{{ __('settings.client_api_key_name') }}</th>
-                <th scope="col">{{ __('settings.client_api_key_created_at') }}</th>
-                <th scope="col">{{ __('settings.client_api_key_key') }}</th>
-                <th scope="col">{{ __('settings.client_api_key_ip') }}</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($client_keys as $client_key)
-                  <tr>
-                    <td>{{$client_key->description}}</td>
-                    <td>{{$client_key->created_at}}</td>
-                    <td>{{$client_key->key}}</td>
-                    <td>
-                      <form action="{{ route('delete-client-key', ['key' => $client_key->key])}}" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="btn btn-danger">{{ __('settings.delete') }}</button>
-                      </form>
-                  </tr>
-              @endforeach
-            </tbody>
-        </table>
-        <div class="float-right">
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#new-client-key">{{ __('settings.create_client_key') }}</button>
-        </div>
+      
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
   </div>
