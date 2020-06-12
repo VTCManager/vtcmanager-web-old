@@ -7,7 +7,7 @@
 <template>
     <div>
         <div v-if="tokens.length > 0">
-            <div class="card card-default">
+            <div class="card card-default background-primary">
                 <div class="card-header">Authorized Applications</div>
 
                 <div class="card-body">

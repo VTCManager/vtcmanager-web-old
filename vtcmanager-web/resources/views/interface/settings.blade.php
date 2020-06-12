@@ -12,7 +12,9 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
     <div class="tab-pane fade" id="client-page" role="tabpanel" aria-labelledby="client-tab">
-
+      <passport-clients></passport-clients>
+      <passport-authorized-clients></passport-authorized-clients>
+      <passport-personal-access-tokens></passport-personal-access-tokens>
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
   </div>

@@ -7,7 +7,7 @@
 <template>
     <div>
         <div>
-            <div class="card card-default">
+            <div class="card card-default background-primary">
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span>
@@ -27,7 +27,7 @@
                     </p>
 
                     <!-- Personal Access Tokens -->
-                    <table class="table table-borderless mb-0" v-if="tokens.length > 0">
+                    <table class="table table-borderless mb-0 text-white" v-if="tokens.length > 0">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -86,7 +86,7 @@
                                 <label class="col-md-4 col-form-label">Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="create-token-name" type="text" class="form-control" name="name" v-model="form.name">
+                                    <input id="create-token-name" type="text" class="form-control text-white" name="name" v-model="form.name">
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@
                             You may now use this token to make API requests.
                         </p>
 
-                        <textarea class="form-control" rows="10">{{ accessToken }}</textarea>
+                        <textarea class="form-control text-white" rows="10">{{ accessToken }}</textarea>
                     </div>
 
                     <!-- Modal Actions -->
