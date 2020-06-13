@@ -24,14 +24,7 @@ class LogbookController extends Controller
      */
     public function index(Request $request)
     {
-        /*$job["origin"] = "Test origigii";
-        $job["destination"] = "Tst destiiii";
-        $job["cargo"] = "Tast crög";
-        $job["distance"] = 1;
-        $job["started"] = true;
-
-        auth()->user()->jobs()->create($job);*/
-        $jobs = auth()->user()->jobs()->latest()->get();
+        $jobs = auth()->user()->jobs()->latest()->paginate(15);
         return view('interface.logbook', ['jobs' => $jobs]);
     }
 }

@@ -74,4 +74,7 @@
 @if ($jobs->isempty())
     <h3 class="text-center">{{ __('logbook.no_tour_found') }}</h3>
 @endif
+<div class="d-flex justify-content-center">
+  {{ $jobs->links() }}
+</div>
 @endsection
