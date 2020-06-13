@@ -15,4 +15,13 @@ class City extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function jobs_arriving()
+    {
+        return $this->hasMany('App\Job', 'destination_id');
+    }
+    public function jobs_departing()
+    {
+        return $this->hasMany('App\Job', 'origin_id');
+    }
 }
