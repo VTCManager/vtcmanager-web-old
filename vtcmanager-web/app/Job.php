@@ -22,7 +22,10 @@ class Job extends Model
         'origin', 'destination', 'cargo','cargo_weight', 'distance','company', 'status', 'ets_income',
     ];
 
-
+    protected $attributes = [
+        'delayed' => false,
+    ];
+    
     public function truck()
     {
         return $this->hasOne(Truck::class);
