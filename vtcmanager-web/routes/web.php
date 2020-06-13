@@ -15,11 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     //for dev alpha on server
-    //return redirect("https://vtc.northwestvideo.de/");
     if(Auth::check()){
         return redirect("/interface");
     }else{
-        return view('index');
+        return redirect('/login');
     }
 });
 
