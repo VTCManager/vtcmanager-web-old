@@ -19,7 +19,7 @@ class Job extends Model
      * @var array
      */
     protected $fillable = [
-        'origin', 'destination', 'cargo','cargo_weight', 'distance','company', 'status',
+        'origin', 'destination', 'cargo','cargo_weight', 'distance','company', 'status', 'ets_income',
     ];
 
 

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('auth:api')->get('/job/delivered', 'APIJobController@delivered');
+Route::middleware('auth:api')->post('/job/started', 'APIJobController@started');
 
 //Route::post('/key/{key}/job/start', "APIJobController@start");
 //Route::post('/key/{key}/job/delivered', "APIJobController@delivered");

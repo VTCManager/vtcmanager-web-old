@@ -8,55 +8,32 @@ use Illuminate\Http\Request;
 
 class APIJobController extends Controller
 {
-    public function start(Request $request, $key)
+    public function started(Request $request)
     {
-        $key = ClientKey::find($key);
-        if (isset($key->key)) {
-            if($request->client_ident == $key->client_ident && $request->key == $key->key){
                 $job["origin"] = $request->origin;
                 $job["destination"] = $request->destination;
                 $job["cargo"] = $request->cargo;
                 $job["cargo_weight"] = (int)$request->cargo_weight;
                 $job["distance"] = $request->planned_distance;
+                $job["ets_income"] = $request->ets_income;
                 $job["started"] = true;
-                $key->user()->get()->first()->jobs()->create($job);
+                $request->user()->jobs()->create($job);
                 return [
                     'success' => true,
                 ];
-            }else{
-                return [
-                    'success' => false,
-                    'error_code' => 'unauthorized',
-                ];
-            }
-        } else {
-            return [
-                'success' => false,
-                'error_code' => 'key_not_found',
-            ];
-        }
     }
-    public function delivered(Request $request, $key){
-        $key = ClientKey::find($key);
-        if (isset($key->key)) {
-            if($request->client_ident == $key->client_ident && $request->key == $key->key){
-                $job = $key->user()->first()->jobs()->latest()->get()->first();
-                $job->finished = true;
-                $key->user()->first()->jobs()->save($job);
-                return [
-                    'success' => true,
-                ];
-            }else{
-                return [
-                    'success' => false,
-                    'error_code' => 'unauthorized',
-                ];
-            }
-        } else {
+    public function delivered(Request $request){
+        $job = $request->user()->jobs()->latest()->get()->first();
+        if(!$job){
             return [
-                'success' => false,
-                'error_code' => 'key_not_found',
+                'error' => true,
+                'details' => 'No tours found',
             ];
         }
+        $job->finished = true;
+        $request->user()->jobs()->save($job);
+        return [
+            'error' => false,
+        ];
     }
 }
