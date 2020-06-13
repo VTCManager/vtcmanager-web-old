@@ -52737,6 +52737,25 @@ $(document).ready(function () {
   $(".btn-go-back").mouseout(function () {
     $('.go-back-icon').css('color', 'black');
   });
+  $(".job-more-details-btn").click(function () {
+    var button = $(this);
+    var button_text_before = button.text();
+    button.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>');
+    $.ajax({
+      'url': '/interface/api/job/' + button.data('job-id'),
+      'type': 'GET',
+      'success': function success(data) {
+        console.log(data);
+        console.log(data["origin"]);
+        $('#JobInfoModal').modal('show');
+        button.html(button_text_before);
+      },
+      'error': function error(request, _error) {
+        alert("Request: " + JSON.stringify(request));
+        button.html(button_text_before);
+      }
+    });
+  });
 }); // toggle full screen
 
 function toggleFullScreen() {

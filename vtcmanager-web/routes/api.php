@@ -20,7 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::middleware('auth:api')->get('/job/delivered', 'APIJobController@delivered');
 Route::middleware('auth:api')->post('/job/started', 'APIJobController@started');
-Route::middleware('auth')->get('/job/{id}', 'APIJobController@show');
 
 //Route::post('/key/{key}/job/start', "APIJobController@start");
 //Route::post('/key/{key}/job/delivered', "APIJobController@delivered");

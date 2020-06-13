@@ -36,4 +36,8 @@ class APIJobController extends Controller
             'error' => false,
         ];
     }
+
+    public function show(Request $request, $id){
+        return auth()->user()->jobs()->findorfail($id);
+    }
 }

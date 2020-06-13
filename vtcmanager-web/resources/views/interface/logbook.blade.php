@@ -1,7 +1,7 @@
 @extends('layouts.interface')
 
 @section('content')
-<div class="modal fade" id="job-details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="JobInfoModal">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -66,7 +66,7 @@
                 @endif
             </td>
             <td class="align-middle">{{$job->created_at->format("d.m.Y H:i")}}</td>
-            <td class="align-middle"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#job-details">{{ __('logbook.details') }}</button></td>
+            <td class="align-middle"><button type="button" class="btn btn-outline-info job-more-details-btn" data-job-id="{{$job->id}}">{{ __('logbook.details') }}</button></td>
           </tr>
         @endforeach
     </tbody>

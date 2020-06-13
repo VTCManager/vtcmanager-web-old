@@ -45,104 +45,123 @@ Vue.component(
  */
 
 const app = new Vue({
-    el: '#app',
+  el: '#app',
 });
 
 //Loading completed animation
 $(window).on("load", function (e) {
-    $("#preloader").fadeOut(1000);
-    $("#app").fadeIn(800);
+  $("#preloader").fadeOut(1000);
+  $("#app").fadeIn(800);
 });
 jQuery(function ($) {
 
-    $(".sidebar-dropdown > a").click(function() {
-  $(".sidebar-submenu").slideUp(200);
-  if (
-    $(this)
-      .parent()
-      .hasClass("active")
-  ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .parent()
-      .removeClass("active");
-  } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .next(".sidebar-submenu")
-      .slideDown(200);
-    $(this)
-      .parent()
-      .addClass("active");
-  }
-});
+  $(".sidebar-dropdown > a").click(function () {
+    $(".sidebar-submenu").slideUp(200);
+    if (
+      $(this)
+        .parent()
+        .hasClass("active")
+    ) {
+      $(".sidebar-dropdown").removeClass("active");
+      $(this)
+        .parent()
+        .removeClass("active");
+    } else {
+      $(".sidebar-dropdown").removeClass("active");
+      $(this)
+        .next(".sidebar-submenu")
+        .slideDown(200);
+      $(this)
+        .parent()
+        .addClass("active");
+    }
+  });
 
-$("#close-sidebar").click(function() {
-  $(".page-wrapper").removeClass("toggled");
-});
-$("#show-sidebar").click(function() {
-  $(".page-wrapper").addClass("toggled");
-});
+  $("#close-sidebar").click(function () {
+    $(".page-wrapper").removeClass("toggled");
+  });
+  $("#show-sidebar").click(function () {
+    $(".page-wrapper").addClass("toggled");
+  });
 
 
-   
-   
+
+
 });
-$(document).ready(function() {
+$(document).ready(function () {
   // card js start
-  
-  
-  $(".mobile-options").on('click', function() {
-  $(".navbar-container .nav-right").slideToggle('slow');
+
+
+  $(".mobile-options").on('click', function () {
+    $(".navbar-container .nav-right").slideToggle('slow');
   });
-  $(".search-btn").on('click', function() {
-  $(".main-search").addClass('open');
-  $('.main-search .form-control').animate({
-  'width': '200px',
+  $(".search-btn").on('click', function () {
+    $(".main-search").addClass('open');
+    $('.main-search .form-control').animate({
+      'width': '200px',
+    });
   });
+  $(".search-close").on('click', function () {
+    $('.main-search .form-control').animate({
+      'width': '0',
+    });
+    setTimeout(function () {
+      $(".main-search").removeClass('open');
+    }, 300);
   });
-  $(".search-close").on('click', function() {
-  $('.main-search .form-control').animate({
-  'width': '0',
-  });
-  setTimeout(function() {
-  $(".main-search").removeClass('open');
-  }, 300);
-  });
-  
-  $(".btn-go-back").mouseover(function() {
+
+  $(".btn-go-back").mouseover(function () {
     console.log("ye");
-    $('.go-back-icon').css('color','white');
+    $('.go-back-icon').css('color', 'white');
   });
-  $(".btn-go-back").mouseout(function() {
-    $('.go-back-icon').css('color','black');
+  $(".btn-go-back").mouseout(function () {
+    $('.go-back-icon').css('color', 'black');
   })
-  
-  
-  });
-  
-  // toggle full screen
-  function toggleFullScreen() {
+  $(".job-more-details-btn").click(function(){
+    var button = $(this);
+    var button_text_before = button.text();
+    button.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>');
+    $.ajax({
+      'url': '/interface/api/job/'+button.data('job-id'),
+      'type': 'GET',
+      'success': function (data) {
+        console.log(data);
+        console.log(data["origin"]);
+        $('#JobInfoModal').modal('show');
+        button.html(button_text_before);
+      },
+      'error': function (request, error) {
+        alert("Request: " + JSON.stringify(request));
+        button.html(button_text_before);
+      }
+    });
+  })
+
+
+});
+
+// toggle full screen
+function toggleFullScreen() {
   var a = $(window).height() - 10;
-  
+
   if (!document.fullscreenElement && // alternative standard method
-  !document.mozFullScreenElement && !document.webkitFullscreenElement) { // current working methods
-  if (document.documentElement.requestFullscreen) {
-  document.documentElement.requestFullscreen();
-  } else if (document.documentElement.mozRequestFullScreen) {
-  document.documentElement.mozRequestFullScreen();
-  } else if (document.documentElement.webkitRequestFullscreen) {
-  document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-  }
+    !document.mozFullScreenElement && !document.webkitFullscreenElement) { // current working methods
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
   } else {
-  if (document.cancelFullScreen) {
-  document.cancelFullScreen();
-  } else if (document.mozCancelFullScreen) {
-  document.mozCancelFullScreen();
-  } else if (document.webkitCancelFullScreen) {
-  document.webkitCancelFullScreen();
-  }
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
   }
   $('.full-screen').toggleClass('icon-maximize');
   $('.full-screen').toggleClass('icon-minimize');
-  }
+}

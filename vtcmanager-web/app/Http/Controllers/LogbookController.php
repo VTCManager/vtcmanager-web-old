@@ -27,8 +27,4 @@ class LogbookController extends Controller
         $jobs = auth()->user()->jobs()->latest()->paginate(15);
         return view('interface.logbook', ['jobs' => $jobs]);
     }
-
-    public function show(Request $request, $id){
-        
-    }
 }

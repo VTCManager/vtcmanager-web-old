@@ -32,3 +32,4 @@ Route::get('/interface/logbook', 'LogbookController@index')->middleware('verifie
 Route::get('/interface/account/settings/', 'SettingsController@index')->name('settings')->middleware('verified');
 Route::get('/login/steam', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/steam/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/interface/api/job/{id}', 'APIJobController@show')->middleware('verified');
