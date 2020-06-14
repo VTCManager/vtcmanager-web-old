@@ -74,13 +74,13 @@ class APIJobController extends Controller
         }
         $job["truck_id"] = $request->truck_id;
 
-        $job["distance"] = $request->planned_distance;
-        $job["ets_income"] = $request->ets_income;
+        $job["distance"] = (int)$request->planned_distance;
+        $job["ets_income"] = (int)$request->ets_income;
         $job["started"] = true;
         $job["delivery_deadline"] = Carbon::parse($request->delivery_deadline);
         $job["freight_market"] = $request->freight_market;
-        $job["fuel_at_beginning"] = $request->fuel_at_beginning;
-        $job["truck_damage_at_beginning"] = $request->truck_damage_at_beginning;
+        $job["fuel_at_beginning"] = (float)$request->fuel_at_beginning;
+        $job["truck_damage_at_beginning"] = (float)$request->truck_damage_at_beginning;
         $request->user()->jobs()->create($job);
         return [
             'success' => true,
@@ -96,6 +96,10 @@ class APIJobController extends Controller
                 'details' => 'No tours found',
             ];
         }
+		$job["delivered_time"] = Carbon::parse($request->delivered_time);
+		$job["cargo_damage"] = (float)$request->cargo_damage;
+		$job["fuel_at_end"] = (float)$request->fuel_at_end;
+		$job["truck_damage_at_end"] = (float)$request->truck_damage_at_end;
         $job->finished = true;
         $request->user()->jobs()->save($job);
         return [
