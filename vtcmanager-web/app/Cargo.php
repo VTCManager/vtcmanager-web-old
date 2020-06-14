@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Cargo extends Model
 {
     //for id
     public $incrementing = false;
@@ -16,12 +16,8 @@ class City extends Model
         'name', 'id',
     ];
 
-    public function jobs_arriving()
+    public function jobs()
     {
-        return $this->hasMany('App\Job', 'destination_id');
-    }
-    public function jobs_departing()
-    {
-        return $this->hasMany('App\Job', 'origin_id');
+        return $this->hasMany('App\Job', 'cargo_id');
     }
 }

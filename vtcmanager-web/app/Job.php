@@ -20,11 +20,7 @@ class Job extends Model
      */
     protected $fillable = [
         'origin_id', 'destination_id', 'cargo','cargo_weight', 'distance','company', 'status', 'ets_income', 'origin_company_id', 'destination_company_id', 'delivery_deadline',
-        'freight_market', 'fuel_at_beginning', 'truck_damage_at_beginning', 'cargo_id',
-    ];
-
-    protected $attributes = [
-        'delayed' => false,
+        'freight_market', 'fuel_at_beginning', 'truck_damage_at_beginning', 'cargo_id', 'delivered_time', 'cargo_damage', 'fuel_at_end', 'truck_damage_at_end',
     ];
 
     public function truck()
@@ -37,10 +33,22 @@ class Job extends Model
     }
     public function origin()
     {
-        return $this->belongsTo('App\Post');
+        return $this->belongsTo(City::class);
+    }
+    public function origin_company()
+    {
+        return $this->belongsTo(InGameCompany::class);
     }
     public function destination()
     {
-        return $this->belongsTo('App\Post');
+        return $this->belongsTo(City::class);
+    }
+    public function destination_company()
+    {
+        return $this->belongsTo(InGameCompany::class);
+    }
+    public function cargo()
+    {
+        return $this->belongsTo(Cargo::class);
     }
 }
