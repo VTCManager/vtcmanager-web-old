@@ -47,9 +47,9 @@
     <tbody>
         @foreach ($jobs as $job)
         <tr>
-            <td class="align-middle">{{$job->origin}}</td>
-            <td class="align-middle">{{$job->destination}}</td>
-            <td class="align-middle">{{$job->cargo}}</td>
+            <td class="align-middle">{{$job->origin->name}}</td>
+            <td class="align-middle">{{$job->destination->name}}</td>
+            <td class="align-middle">{{$job->cargo->name}}</td>
             <td class="align-middle">
                 @if ($job->pending_verification)
                     <i class="fas fa-clock"></i> {{ __('logbook.pending_verification') }}

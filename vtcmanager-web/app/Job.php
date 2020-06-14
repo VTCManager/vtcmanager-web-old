@@ -20,12 +20,12 @@ class Job extends Model
      */
     protected $fillable = [
         'origin_id', 'destination_id', 'cargo','cargo_weight', 'distance','company', 'status', 'ets_income', 'origin_company_id', 'destination_company_id', 'delivery_deadline',
-        'freight_market', 'fuel_at_beginning', 'truck_damage_at_beginning', 'cargo_id', 'delivered_time', 'cargo_damage', 'fuel_at_end', 'truck_damage_at_end',
+        'freight_market', 'fuel_at_beginning', 'truck_damage_at_beginning', 'cargo_id', 'delivered_time', 'cargo_damage', 'fuel_at_end', 'truck_damage_at_end', 'truck_id',
     ];
 
     public function truck()
     {
-        return $this->hasOne(Truck::class);
+        return $this->belongsTo(Truck::class);
     }
     public function user()
     {

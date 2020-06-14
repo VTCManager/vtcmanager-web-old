@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrucksTable extends Migration
+class RemoveCargoFromJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTrucksTable extends Migration
      */
     public function up()
     {
-        Schema::create('trucks_table', function (Blueprint $table) {
-            $table->string("id")->primary();
-            $table->timestamps();
-            $table->string("manufacturer");
-            $table->string("model");
+        Schema::table('jobs_table', function (Blueprint $table) {
+            $table->dropColumn("cargo");
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTrucksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trucks_table');
+        Schema::table('jobs_table', function (Blueprint $table) {
+            $table->string("cargo")->nullable();
+        });
     }
 }

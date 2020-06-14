@@ -13,12 +13,7 @@ class Truck extends Model
      */
     protected $table = 'trucks_table';
 
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'truck_id';
+    public $timestamps = false;
 
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -34,8 +29,16 @@ class Truck extends Model
      */
     protected $keyType = 'string';
 
+    protected $fillable = [
+        'id', 'model', 'brand_id',
+    ];
+
     public function jobs()
     {
-        return $this->belongsToMany(Job::class);
+        return $this->hasMany(Job::class);
+    }
+
+    public function truckbrand(){
+        return $this->belongsTo(Brand::class);
     }
 }

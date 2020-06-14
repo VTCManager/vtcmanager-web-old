@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrucksTable extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTrucksTable extends Migration
      */
     public function up()
     {
-        Schema::create('trucks_table', function (Blueprint $table) {
-            $table->string("id")->primary();
-            $table->timestamps();
-            $table->string("manufacturer");
-            $table->string("model");
+        Schema::create('truck_brands', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string("name");
         });
     }
 
@@ -28,6 +26,6 @@ class CreateTrucksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trucks_table');
+        Schema::dropIfExists('truck_brands');
     }
 }
