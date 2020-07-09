@@ -1,6 +1,6 @@
 # vtcmanager-web
 VTCManager is a powerful Euro Truck Simulator 2 tool. We are building something more than only a simple job logger. Together we can build something awesome! <br>
-IMPORTANT: This client is unfinished and the development was canceled!
+IMPORTANT: This website is unfinished and the development was canceled! This website is based on the Laravel PHP framework.
 
 ## Community
 Join our official Discord server and chat with other devs. https://discord.gg/AJrapkG
